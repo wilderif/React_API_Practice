@@ -1,7 +1,7 @@
 import { MdOutlineDarkMode } from "react-icons/md";
 
-function DarkModeIcon() {
-  return <MdOutlineDarkMode className="w-5 h-5" />;
-}
+const DarkModeIcon = () => {
+  return <MdOutlineDarkMode className="h-5 w-5" />;
+};
 
 export default DarkModeIcon;

@@ -1,7 +1,7 @@
 import { IoMdHeart } from "react-icons/io";
 
-function HeartFillIcon() {
-  return <IoMdHeart className="w-6 h-6" />;
-}
+const HeartFillIcon = () => {
+  return <IoMdHeart className="h-6 w-6" />;
+};
 
 export default HeartFillIcon;

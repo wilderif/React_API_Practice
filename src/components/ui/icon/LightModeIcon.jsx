@@ -1,7 +1,7 @@
 import { MdOutlineLightMode } from "react-icons/md";
 
-function LightModeIcon() {
-  return <MdOutlineLightMode className="w-5 h-5" />;
-}
+const LightModeIcon = () => {
+  return <MdOutlineLightMode className="h-5 w-5" />;
+};
 
 export default LightModeIcon;
