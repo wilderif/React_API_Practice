@@ -4,6 +4,9 @@ export default {
   darkMode: "selector",
   theme: {
     extend: {
+      fontSize: {
+        xxs: "10px",
+      },
       colors: {
         text: {
           black: "#000000", // 검정색, 기본 텍스트 색상

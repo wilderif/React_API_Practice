@@ -4,7 +4,7 @@ import HomePage from "../features/HomePage/HomePage";
 
 function App() {
   return (
-    <div className="mx-4">
+    <div className="">
       <HomePage />
     </div>
   );

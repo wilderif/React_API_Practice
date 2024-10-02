@@ -3,7 +3,7 @@ import { LightModeIcon } from "./ui/icon";
 
 const Header = (isHome) => {
   return (
-    <header className="bg-slate-300 pt-4">
+    <header className="bg-slate-300 px-4 pt-4 shadow-sm">
       {/* 레이아웃 클래스 */}
       <div className="mb-4 flex content-center justify-between">
         <h1>

@@ -1,7 +1,7 @@
-import { MdHome } from "react-icons/md";
+import { MdOutlineHome } from "react-icons/md";
 
 const HomeIcon = () => {
-  return <MdHome className="h-6 w-6" />;
+  return <MdOutlineHome className="h-6 w-6 bg-blue-500" />;
 };
 
 export default HomeIcon;
