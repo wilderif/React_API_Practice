@@ -1,20 +1,12 @@
 import { useState } from "react";
-import "./App.css";
-import { HomeIcon } from "./components/ui/icon";
+
+import HomePage from "../features/HomePage/HomePage";
 
 function App() {
-  const [count, setCount] = useState(0);
   return (
-    <>
-      <div>
-        <HomeIcon />
-        <div className="bg-white dark:bg-black">
-          <h1 className="text-text-medium text-3xl font-bold underline dark:text-white">
-            Hello world!
-          </h1>
-        </div>
-      </div>
-    </>
+    <div className="mx-4">
+      <HomePage />
+    </div>
   );
 }
 
