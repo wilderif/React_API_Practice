@@ -6,10 +6,10 @@ function App() {
   const [count, setCount] = useState(0);
   return (
     <>
-      <div className="dark">
+      <div>
         <HomeIcon />
         <div className="bg-white dark:bg-black">
-          <h1 className="text-3xl font-bold underline dark:text-white">
+          <h1 className="text-text-medium text-3xl font-bold underline dark:text-white">
             Hello world!
           </h1>
         </div>
