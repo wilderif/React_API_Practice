@@ -17,7 +17,7 @@ const TEMP_NAVBAR_DATA = [
 const HeaderNavBar = () => {
   return (
     <nav className="pb-4">
-      <ul className="no-scrollbar flex flex-nowrap content-center gap-4 overflow-x-auto">
+      <ul className="no-scrollbar no-scrollbar flex flex-nowrap content-center gap-4 overflow-x-auto">
         {TEMP_NAVBAR_DATA.map((item) => (
           <li className="whitespace-nowrap bg-yellow-200" key={item}>
             {item}
