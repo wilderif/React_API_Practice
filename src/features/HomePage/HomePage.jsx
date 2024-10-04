@@ -6,7 +6,7 @@ const HomePage = () => {
   return (
     <>
       <Header isHome={true} />
-      <div className="mx-6">
+      <div className="mx-6 pb-20">
         <FestivalCardList />
       </div>
       <BottomNavBar />

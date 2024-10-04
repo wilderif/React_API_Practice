@@ -1,6 +1,6 @@
 const FestivalCard = ({ festival }) => {
   return (
-    <div className="mt-6 w-full bg-slate-400">
+    <div className="mt-6 w-full">
       <img
         src={festival.image}
         alt={festival.title}
