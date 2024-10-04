@@ -1,11 +1,26 @@
-import Header from "../../components/Header";
-import BottomNavBar from "../../components/BottomNavBar";
 import FestivalCardList from "../../components/FestivalCardList";
 import useHomeStore from "../../stores/homeStore";
+import getCurrenDate from "../../util/getCurrentDate";
+import { fetchFestivals } from "../../api/festivalApi";
+import { useEffect } from "react";
+
+const currentDate = getCurrenDate();
 
 const HomePage = () => {
-  useHomeStore.setState({ isHome: true });
-  return <FestivalCardList />;
+  // useEffect(() => {
+  //   useHomeStore.setState({ isHome: true });
+  //   const newFestivals = async () => {
+  //     const loaded = await fetchFestivals(20241004, "", 10, 1);
+  //     console.log(loaded);
+  //   };
+
+  //   newFestivals();
+  // }, []);
+
+  // const newFestivals = await fetchFestivals(20241004, "", 10, 1);
+  // console.log(newFestivals);
+
+  return <FestivalCardList eventStartDate={currentDate} areaCode="" />;
 };
 
 export default HomePage;

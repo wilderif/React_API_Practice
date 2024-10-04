@@ -1,4 +1,5 @@
-import { baseUrlFestivalApi } from "../constans/ApiBaseUrl";
+import { baseUrlFestivalApi } from "../constans/apiBaseUrl";
+import { tourApiKey } from "../constans/ApiKey";
 
 export const fetchFestivals = async (
   eventStartDate,
@@ -12,8 +13,13 @@ export const fetchFestivals = async (
     url.searchParams.append("areaCode", areaCode);
     url.searchParams.append("numOfRows", numOfRows);
     url.searchParams.append("pageNo", pageNo);
+    url.searchParams.append("serviceKey", tourApiKey);
 
-    const response = await fetch(url.href);
+    console.log("apiKey", tourApiKey);
+
+    console.log("url", url.href);
+
+    const response = await url.href;
 
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
