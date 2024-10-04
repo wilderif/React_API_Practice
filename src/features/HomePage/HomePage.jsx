@@ -7,18 +7,15 @@ import { useEffect } from "react";
 const currentDate = getCurrenDate();
 
 const HomePage = () => {
-  // useEffect(() => {
-  //   useHomeStore.setState({ isHome: true });
-  //   const newFestivals = async () => {
-  //     const loaded = await fetchFestivals(20241004, "", 10, 1);
-  //     console.log(loaded);
-  //   };
+  useEffect(() => {
+    useHomeStore.setState({ isHome: true });
+    // const newFestivals = async () => {
+    //   const loaded = await fetchFestivals(20241004, "", 10, 1);
+    //   console.log(loaded);
+    // };
 
-  //   newFestivals();
-  // }, []);
-
-  // const newFestivals = await fetchFestivals(20241004, "", 10, 1);
-  // console.log(newFestivals);
+    // newFestivals();
+  }, []);
 
   return <FestivalCardList eventStartDate={currentDate} areaCode="" />;
 };
