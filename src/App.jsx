@@ -1,13 +1,9 @@
-import { useState } from "react";
+import { RouterProvider } from "react-router-dom";
 
-import HomePage from "./features/HomePage/HomePage";
+import routes from "./routes";
 
-function App() {
-  return (
-    <>
-      <HomePage />
-    </>
-  );
-}
+const App = () => {
+  return <RouterProvider router={routes} />;
+};
 
 export default App;

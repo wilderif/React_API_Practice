@@ -1,6 +1,7 @@
 export { default as ArrowBackIcon } from "./ArrowBackIcon";
 export { default as CalendarIcon } from "./CalendarIcon";
 export { default as CallIcon } from "./CallIcon";
+export { default as CloseIcon } from "./CloseIcon";
 export { default as DarkModeIcon } from "./DarkModeIcon";
 export { default as HeartEmptyIcon } from "./HeartEmptyIcon";
 export { default as HeartFillIcon } from "./HeartFillIcon";
