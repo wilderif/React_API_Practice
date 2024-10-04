@@ -4,8 +4,11 @@ export default {
   darkMode: "selector",
   theme: {
     extend: {
+      fontSize: {
+        xxs: "10px",
+      },
       colors: {
-        text: {
+        achromatic: {
           black: "#000000", // 검정색, 기본 텍스트 색상
           // dark: "#000000", // 검정색, 기본 텍스트 색상
           medium: "#636363", // 중간 회색, 카드 디테일 텍스트
@@ -19,6 +22,9 @@ export default {
         dark: {
           background: "#212135",
         },
+      },
+      boxShadow: {
+        top_only: "0 -4px 6px -2px rgba(0, 0, 0, 0.1)",
       },
     },
   },

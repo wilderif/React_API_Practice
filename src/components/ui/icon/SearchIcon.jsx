@@ -1,7 +1,7 @@
 import { MdOutlineSearch } from "react-icons/md";
 
-function SearchIcon() {
-  return <MdOutlineSearch className="w-6 h-6" />;
-}
+const SearchIcon = () => {
+  return <MdOutlineSearch className="h-6 w-6" />;
+};
 
 export default SearchIcon;

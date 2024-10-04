@@ -1,7 +1,7 @@
-import { IoMdHeartEmpty } from "react-icons/io";
+import { RiHeartLine } from "react-icons/ri";
 
-function HeartEmptyIcon() {
-  return <IoMdHeartEmpty className="w-6 h-6" />;
-}
+const HeartEmptyIcon = () => {
+  return <RiHeartLine className="h-6 w-6" />;
+};
 
 export default HeartEmptyIcon;

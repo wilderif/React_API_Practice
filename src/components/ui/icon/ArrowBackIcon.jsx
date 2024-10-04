@@ -1,7 +1,7 @@
 import { MdOutlineArrowBackIos } from "react-icons/md";
 
-function ArrowBackIcon() {
+const ArrowBackIcon = () => {
   return <MdOutlineArrowBackIos className="h-5" />;
-}
+};
 
 export default ArrowBackIcon;
