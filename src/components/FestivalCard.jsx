@@ -1,8 +1,10 @@
+import { forwardRef } from "react";
+
 import { HeartFillIcon } from "./ui/icon/index";
 import FestivalIndicator from "./FestivalIndicator";
 import areaCode from "../constans/areaCode";
 
-const FestivalCard = ({ festival }) => {
+const FestivalCard = forwardRef(({ festival, ref }) => {
   return (
     <div className="relative mt-6 w-full">
       <img
@@ -25,6 +27,6 @@ const FestivalCard = ({ festival }) => {
       </div>
     </div>
   );
-};
+});
 
 export default FestivalCard;

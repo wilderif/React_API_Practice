@@ -10,19 +10,23 @@ export const useFetchFestivals = (eventStartDate, areaCode) => {
   useEffect(() => {
     const loadFestivals = async () => {
       setLoading(true);
+      console.log("page", page);
       const newFestivals = await fetchFestivals(
         eventStartDate,
         areaCode,
         10,
         page,
       );
-      setFestivals((prevFestivals) => [...prevFestivals, ...newFestivals]);
-      setHasMore(newFestivals.length > 0);
+      if (newFestivals.length > 0) {
+        setFestivals((prevFestivals) => [...prevFestivals, ...newFestivals]);
+      } else {
+        setHasMore(false);
+      }
       setLoading(false);
     };
 
     loadFestivals();
-  }, [eventStartDate, areaCode, page]);
+  }, [page]);
 
   return { festivals, loading, hasMore, setPage };
 };

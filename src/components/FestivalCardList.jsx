@@ -23,6 +23,8 @@ const FestivalCardList = ({ eventStartDate, areaCode }) => {
     [loading, hasMore],
   );
 
+  console.log("festivals", festivals);
+
   return (
     <>
       {festivals.map((festival, index) => {
