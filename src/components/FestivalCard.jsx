@@ -1,11 +1,12 @@
 import { HeartFillIcon } from "./ui/icon/index";
 import FestivalIndicator from "./FestivalIndicator";
+import areaCode from "../constans/areaCode";
 
 const FestivalCard = ({ festival }) => {
   return (
     <div className="relative mt-6 w-full">
       <img
-        src={festival.image}
+        src={festival.firstimage}
         alt={festival.title}
         className="h-60 w-full rounded-xl object-cover"
       />
@@ -18,9 +19,9 @@ const FestivalCard = ({ festival }) => {
       <div>
         <h2 className="mt-2 text-base font-bold">{festival.title}</h2>
         <p className="mt-1.5 text-xs">
-          {festival.dateStart} - {festival.dateEnd}
+          {festival.eventstartdate} - {festival.eventenddate}
         </p>
-        <p className="text-xs">{festival.location}</p>
+        <p className="text-xs">{areaCode[festival.sigungucode]}</p>
       </div>
     </div>
   );

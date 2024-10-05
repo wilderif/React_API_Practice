@@ -29,8 +29,8 @@ const FestivalCardList = ({ eventStartDate, areaCode }) => {
         if (festivals.length === index + 1) {
           return (
             <FestivalCard
-              ref={lastFestivalElementRef}
               key={festival.contentid}
+              ref={lastFestivalElementRef}
               festival={festival}
             />
           );
