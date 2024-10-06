@@ -1,7 +1,18 @@
 import { MdOutlineSearch } from "react-icons/md";
+import useNavigationStore from "../../../stores/navigationStore";
 
 const SearchIcon = () => {
-  return <MdOutlineSearch className="h-6 w-6" />;
+  const currentPage = useNavigationStore((state) => state.currentPage);
+
+  return (
+    <MdOutlineSearch
+      className={`h-6 w-6 ${
+        currentPage === "searchDate" || currentPage === "searchRegion"
+          ? "text-brand-primary"
+          : "text-achromatic-medium"
+      }`}
+    />
+  );
 };
 
 export default SearchIcon;

@@ -1,10 +1,10 @@
-import Header from "../../components/Header";
-import BottomNavBar from "../../components/BottomNavBar";
 import FestivalCardList from "../../components/FestivalCardList";
-import useHomeStore from "../../stores/homeStore";
+import useNavigationStore from "../../stores/navigationStore";
 
 const HomePage = () => {
-  useHomeStore.setState({ isHome: true });
+  const setCurrentPage = useNavigationStore((state) => state.setCurrentPage);
+  setCurrentPage("home");
+
   return <FestivalCardList />;
 };
 
