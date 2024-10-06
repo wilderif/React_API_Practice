@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchFestivalDetail } from "../../api/festivalApi";
 import useNavigationStore from "../../stores/navigationStore";
+import useWishListStore from "../../stores/wishListStore";
 import {
   CalendarIcon,
   HeartFillIcon,
@@ -13,6 +14,18 @@ import FestivalIndicator from "../../components/FestivalIndicator";
 const DetailPage = () => {
   const { id } = useParams();
   const [festivalDetail, setFestivalDetail] = useState(null);
+  const [isInWishList, setIsInWishList] = useState(false);
+  const { wishList, addToWishList, removeFromWishList } = useWishListStore();
+
+  // const handleWishListClick = (e) => {
+  //   e.stopPropagation();
+
+  //   if (isInWishList) {
+  //     removeFromWishList(festivalDetail.contentid);
+  //   } else {
+  //     addToWishList(festivalDetail);
+  //   }
+  // };
 
   const setCurrentPage = useNavigationStore((state) => state.setCurrentPage);
   setCurrentPage("detail");
@@ -21,6 +34,9 @@ const DetailPage = () => {
     const loadFestivalDetail = async () => {
       const data = await fetchFestivalDetail(id); // 축제 ID에 맞는 상세 정보 불러오기
       setFestivalDetail(data);
+      setIsInWishList(
+        wishList.some((item) => item.contentid === data.contentid),
+      );
     };
 
     loadFestivalDetail();
@@ -44,8 +60,11 @@ const DetailPage = () => {
         <div className="absolute left-4 top-4">
           <FestivalIndicator>개최중</FestivalIndicator>
         </div>
-        <button className="absolute right-4 top-4">
-          <HeartFillIcon active={false} />
+        <button
+          className="absolute right-4 top-4"
+          // onClick={handleWishListClick}
+        >
+          <HeartFillIcon active={isInWishList} />
         </button>
       </div>
 
