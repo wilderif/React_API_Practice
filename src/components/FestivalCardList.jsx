@@ -1,30 +1,33 @@
 import { useEffect, useState } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
+import useSearchStore from "../stores/searchStore";
 
 import FestivalCard from "./FestivalCard";
 import { fetchFestivals } from "../api/festivalApi";
 
-const FestivalCardList = ({ eventStartDate, areaCode }) => {
+const FestivalCardList = () => {
   const [festivals, setFestivals] = useState([]);
   const [hasMore, setHasMore] = useState(true);
   const [page, setPage] = useState(1);
-  const [initialFetch, setInitialFetch] = useState(false); // 최초 페칭 여부 관리
+  // const [initialFetch, setInitialFetch] = useState(false); // 최초 페칭 여부 관리
+
+  const eventStartDate = useSearchStore((state) => state.date);
+  const areaCode = useSearchStore((state) => state.region);
 
   useEffect(() => {
     console.log(eventStartDate, areaCode);
-
+    // if (initialFetch) {
+    //   return;
+    // }
     loadFestivals();
-  }, []);
+    // setInitialFetch(true);
+  }, [eventStartDate, areaCode]);
 
   useEffect(() => {
     console.log(festivals);
   }, [festivals]);
 
   const loadFestivals = async () => {
-    if (initialFetch) {
-      return;
-    }
-    setInitialFetch(true);
     const newFestivals = await fetchFestivals(
       eventStartDate,
       areaCode,
