@@ -26,12 +26,12 @@ const BottomNavBar = () => {
           </Link>
         </li>
         <li className="flex flex-col items-center">
-          <Link to="/search">
+          <Link to="/search/Date">
             <div className="flex flex-col items-center gap-0">
               <SearchIcon />
               <span
                 className={`-mt-0.5 text-xxs ${
-                  currentPage === "search"
+                  currentPage === "searchDate" || currentPage === "searchRegion"
                     ? "text-brand-primary"
                     : "text-achromatic-medium"
                 }`}

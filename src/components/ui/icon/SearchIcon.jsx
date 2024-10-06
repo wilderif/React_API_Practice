@@ -7,7 +7,7 @@ const SearchIcon = () => {
   return (
     <MdOutlineSearch
       className={`h-6 w-6 ${
-        currentPage === "search"
+        currentPage === "searchDate" || currentPage === "searchRegion"
           ? "text-brand-primary"
           : "text-achromatic-medium"
       }`}

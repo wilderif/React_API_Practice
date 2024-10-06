@@ -1,11 +1,14 @@
 import { useState } from "react";
-
-import useSearchStore from "../../stores/searchStore";
-import areaCode from "../../constans/areaCode";
+import useNavigationStore from "../../../stores/navigationStore";
+import useSearchStore from "../../../stores/searchStore";
+import areaCode from "../../../constans/areaCode";
 
 const SearchRegionPage = () => {
   const [selectedRegion, setSelectedRegion] = useState("");
   const setRegion = useSearchStore((state) => state.setRegion);
+  const setCurrentPage = useNavigationStore((state) => state.setCurrentPage);
+
+  setCurrentPage("searchDate");
 
   const handleRegionSelect = (regionKey) => {
     setSelectedRegion(regionKey);

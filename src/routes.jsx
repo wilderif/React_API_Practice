@@ -3,8 +3,8 @@ import { createBrowserRouter } from "react-router-dom";
 import RootLayout from "./features/RootLayout";
 import HomePage from "./features/HomePage/HomePage";
 import SearchLayout from "./features/Search/SearchLayout";
-import SearchDatePage from "./features/Search/SearchDatePage";
-import SearchRegionPage from "./features/Search/SearchRegionPage";
+import SearchDatePage from "./features/Search/SearchDatePage/SearchDatePage";
+import SearchRegionPage from "./features/Search/SearchRegionPage/SearchRegionPage";
 import SearchKeywordPage from "./features/Search/SearchKeywordPage";
 import SearchResultPage from "./features/SearchResultPage/SearchResultPage";
 import DetailPage from "./features/DetailPage/DetailPage";
@@ -29,10 +29,10 @@ const routes = createBrowserRouter([
             path: "region",
             element: <SearchRegionPage />,
           },
-          {
-            path: "keyword",
-            element: <SearchKeywordPage />,
-          },
+          // {
+          //   path: "keyword",
+          //   element: <SearchKeywordPage />,
+          // },
         ],
       },
       {
