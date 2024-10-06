@@ -2,12 +2,28 @@ import { useNavigate } from "react-router-dom";
 import { HeartFillIcon } from "./ui/icon/index";
 import FestivalIndicator from "./FestivalIndicator";
 import areaCode from "../constans/areaCode";
+import useWishListStore from "../stores/wishListStore";
 
 const FestivalCard = ({ festival }) => {
   const navigate = useNavigate();
+  const { wishList, addToWishList, removeFromWishList } = useWishListStore();
 
   const handleCardClick = () => {
     navigate(`/detail/${festival.contentid}`);
+  };
+
+  const isInWishList = wishList.some(
+    (item) => item.contentid === festival.contentid,
+  );
+
+  const handleWishListClick = (e) => {
+    e.stopPropagation();
+
+    if (isInWishList) {
+      removeFromWishList(festival.contentid);
+    } else {
+      addToWishList(festival);
+    }
   };
 
   const calculateDday = (startDate) => {
@@ -34,8 +50,8 @@ const FestivalCard = ({ festival }) => {
           {calculateDday(festival.eventstartdate)}
         </FestivalIndicator>
       </div>
-      <button className="absolute right-2 top-2">
-        <HeartFillIcon active={false} />
+      <button className="absolute right-2 top-2" onClick={handleWishListClick}>
+        <HeartFillIcon active={isInWishList} />
       </button>
       <div>
         <h2 className="mt-2 text-base font-bold">{festival.title}</h2>

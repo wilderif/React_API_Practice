@@ -1,30 +1,29 @@
-import create from "zustand";
+import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
-const useWishlistStore = create(
+const useWishListStore = create(
   persist(
     (set) => ({
-      wishlist: [],
+      wishList: [],
 
-      // 찜 목록에 추가
-      addToWishlist: (festival) =>
+      addToWishList: (festival) =>
         set((state) => ({
-          wishlist: [...state.wishlist, festival],
+          wishList: [...state.wishList, festival],
         })),
 
-      // 찜 목록에서 제거
-      removeFromWishlist: (id) =>
+      removeFromWishList: (contentid) =>
         set((state) => ({
-          wishlist: state.wishlist.filter((item) => item.id !== id),
+          wishList: state.wishList.filter(
+            (item) => item.contentid !== contentid,
+          ),
         })),
 
-      // 찜 목록 초기화
-      resetWishlist: () => set({ wishlist: [] }),
+      resetWishList: () => set({ wishList: [] }),
     }),
     {
-      name: "wishlist-storage", // 로컬 스토리지에 저장될 키 이름
+      name: "wishList-storage",
     },
   ),
 );
 
-export default useWishlistStore;
+export default useWishListStore;
