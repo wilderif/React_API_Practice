@@ -8,7 +8,7 @@ const SearchRegionPage = () => {
   const setRegion = useSearchStore((state) => state.setRegion);
   const setCurrentPage = useNavigationStore((state) => state.setCurrentPage);
 
-  setCurrentPage("searchDate");
+  setCurrentPage("searchRegion");
 
   const handleRegionSelect = (regionKey) => {
     setSelectedRegion(regionKey);

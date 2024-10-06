@@ -26,7 +26,7 @@ const BottomNavBar = () => {
           </Link>
         </li>
         <li className="flex flex-col items-center">
-          <Link to="/search/Date">
+          <Link to="/search/date">
             <div className="flex flex-col items-center gap-0">
               <SearchIcon />
               <span

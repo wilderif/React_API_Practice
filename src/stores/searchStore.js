@@ -1,11 +1,9 @@
 import { create } from "zustand";
 
-import getCurrentDate from "../util/getCurrentDate";
-
 // Zustand 스토어 정의
 const useSearchStore = create((set) => ({
   // 초기 상태
-  date: getCurrentDate(), // 현재 날짜
+  date: new Date(), // 현재 날짜
   region: "0",
 
   // 상태 업데이트 함수
