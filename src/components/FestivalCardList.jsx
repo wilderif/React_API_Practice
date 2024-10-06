@@ -1,47 +1,58 @@
-import { useRef, useCallback } from "react";
-import { useFetchFestivals } from "../hooks/useFetchFestivals";
+import { useEffect, useState } from "react";
+import InfiniteScroll from "react-infinite-scroll-component";
+
 import FestivalCard from "./FestivalCard";
+import { fetchFestivals } from "../api/festivalApi";
 
 const FestivalCardList = ({ eventStartDate, areaCode }) => {
-  const { festivals, loading, hasMore, setPage } = useFetchFestivals(
-    eventStartDate,
-    areaCode,
-  );
+  const [festivals, setFestivals] = useState([]);
+  const [hasMore, setHasMore] = useState(true);
+  const [page, setPage] = useState(1);
+  const [initialFetch, setInitialFetch] = useState(false); // 최초 페칭 여부 관리
 
-  const observer = useRef();
-  const lastFestivalElementRef = useCallback(
-    (node) => {
-      if (loading) return;
-      if (observer.current) observer.current.disconnect();
-      observer.current = new IntersectionObserver((entries) => {
-        if (entries[0].isIntersecting && hasMore) {
-          setPage((prevPage) => prevPage + 1);
-        }
-      });
-      if (node) observer.current.observe(node);
-    },
-    [loading, hasMore],
-  );
+  useEffect(() => {
+    console.log(eventStartDate, areaCode);
 
-  console.log("festivals", festivals);
+    loadFestivals();
+  }, []);
+
+  useEffect(() => {
+    console.log(festivals);
+  }, [festivals]);
+
+  const loadFestivals = async () => {
+    if (initialFetch) {
+      return;
+    }
+    setInitialFetch(true);
+    const newFestivals = await fetchFestivals(
+      eventStartDate,
+      areaCode,
+      10,
+      page,
+    );
+
+    setFestivals((prevFestivals) => [...prevFestivals, ...newFestivals]);
+    newFestivals.length > 0 ? setHasMore(true) : setHasMore(false);
+    setPage((prevPage) => prevPage + 1);
+  };
 
   return (
-    <>
-      {festivals.map((festival, index) => {
-        if (festivals.length === index + 1) {
-          return (
-            <FestivalCard
-              key={festival.contentid}
-              ref={lastFestivalElementRef}
-              festival={festival}
-            />
-          );
-        } else {
-          return <FestivalCard key={festival.contentid} festival={festival} />;
-        }
-      })}
-      {loading && <p>Loading...</p>}
-    </>
+    <InfiniteScroll
+      dataLength={festivals.length}
+      next={loadFestivals}
+      hasMore={hasMore}
+      loader={<p>Loading...</p>}
+    >
+      <div>
+        {festivals &&
+          festivals.map((festival) => {
+            return (
+              <FestivalCard key={festival.contentid} festival={festival} />
+            );
+          })}
+      </div>
+    </InfiniteScroll>
   );
 };
 

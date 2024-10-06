@@ -3,9 +3,9 @@ import { fetchFestivals } from "../api/festivalApi";
 
 export const useFetchFestivals = (eventStartDate, areaCode) => {
   const [festivals, setFestivals] = useState([]);
+  const [hasMore, setHasMore] = useState(true);
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
-  const [hasMore, setHasMore] = useState(true);
 
   useEffect(() => {
     const loadFestivals = async () => {
