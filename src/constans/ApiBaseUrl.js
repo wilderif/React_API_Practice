@@ -6,8 +6,8 @@ export const baseUrlFestivalApi =
   tourApiKey;
 
 export const baseUrlDetailApi =
-  "https://apis.data.go.kr/B551011/KorService1/detailCommon1/?MobileOS=AND&MobileApp=MyFestivalApp&_type=json&" +
-  "serviceKey=" +
+  "https://apis.data.go.kr/B551011/KorService1/detailCommon1?MobileOS=AND&MobileApp=MyFestivalApp&_type=json" +
+  "&serviceKey=" +
   tourApiKey;
 
 // 지역 코드 조회

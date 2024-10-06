@@ -1,15 +1,20 @@
+import { useNavigate } from "react-router-dom";
 import { HeartFillIcon } from "./ui/icon/index";
 import FestivalIndicator from "./FestivalIndicator";
 import areaCode from "../constans/areaCode";
 
 const FestivalCard = ({ festival }) => {
+  const navigate = useNavigate();
+
+  const handleCardClick = () => {
+    navigate(`/detail/${festival.contentid}`);
+  };
+
   const calculateDday = (startDate) => {
-    const today = new Date(); // 현재 날짜
+    const today = new Date();
     const eventDate = new Date(
       `${startDate.substring(0, 4)}-${startDate.substring(4, 6)}-${startDate.substring(6, 8)}`,
-    ); // eventstartdate를 Date 객체로 변환
-
-    // 남은 날짜 계산
+    );
     const differenceInTime = eventDate - today;
     const differenceInDays =
       Math.ceil(differenceInTime / (1000 * 60 * 60 * 24)) - 1;
@@ -18,7 +23,7 @@ const FestivalCard = ({ festival }) => {
   };
 
   return (
-    <div className="relative mt-6 w-full">
+    <div className="relative mt-6 w-full" onClick={handleCardClick}>
       <img
         src={festival.firstimage}
         alt={festival.title}
