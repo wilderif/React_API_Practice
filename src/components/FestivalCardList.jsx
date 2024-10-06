@@ -14,32 +14,29 @@ const FestivalCardList = () => {
   const eventStartDate = useSearchStore((state) => state.date);
   const areaCode = useSearchStore((state) => state.region);
 
+  // areaCode가 변경될 때 데이터를 초기화하고 다시 페칭
   useEffect(() => {
-    console.log(eventStartDate, areaCode);
-    // if (initialFetch) {
-    //   return;
-    // }
-    loadFestivals();
-    // setInitialFetch(true);
+    setPage(1); // 페이지 초기화
+    setFestivals([]); // 기존 축제 목록 초기화
+    loadFestivals(1); // 첫 페이지 데이터 로드
   }, [eventStartDate, areaCode]);
 
   useEffect(() => {
     console.log(festivals);
   }, [festivals]);
 
-  const loadFestivals = async () => {
+  const loadFestivals = async (pageToLoad = page) => {
     const newFestivals = await fetchFestivals(
       eventStartDate,
       areaCode,
       10,
-      page,
+      pageToLoad,
     );
 
     setFestivals((prevFestivals) => [...prevFestivals, ...newFestivals]);
     newFestivals.length > 0 ? setHasMore(true) : setHasMore(false);
-    setPage((prevPage) => prevPage + 1);
+    setPage(pageToLoad + 1); // 다음 페이지 번호 설정
   };
-
   return (
     <InfiniteScroll
       dataLength={festivals.length}

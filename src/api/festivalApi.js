@@ -7,6 +7,9 @@ export const fetchFestivals = async (
   numOfRows,
   pageNo,
 ) => {
+  if (areaCode === "0") {
+    areaCode = "";
+  }
   try {
     // API URL 설정
     const apiUrl = baseUrlFestivalApi;
