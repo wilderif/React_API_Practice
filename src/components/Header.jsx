@@ -1,7 +1,10 @@
+import useNavigationStore from "../stores/navigationStore";
 import HeaderNavBar from "./HeaderNavBar";
 import { LightModeIcon } from "./ui/icon";
 
-const Header = ({ isHome }) => {
+const Header = () => {
+  const currentPage = useNavigationStore((state) => state.currentPage);
+
   return (
     <header className="px-6 py-4 shadow-md">
       <div className="mb-4 flex content-center justify-between">
@@ -12,7 +15,7 @@ const Header = ({ isHome }) => {
           <LightModeIcon />
         </button>
       </div>
-      {isHome && <HeaderNavBar />}
+      {currentPage === "home" && <HeaderNavBar />}
     </header>
   );
 };
