@@ -34,7 +34,7 @@ const FestivalCardList = () => {
     );
 
     setFestivals((prevFestivals) => [...prevFestivals, ...newFestivals]);
-    newFestivals.length > 0 ? setHasMore(true) : setHasMore(false);
+    newFestivals.length === 10 ? setHasMore(true) : setHasMore(false);
     setPage(pageToLoad + 1); // 다음 페이지 번호 설정
   };
   return (
