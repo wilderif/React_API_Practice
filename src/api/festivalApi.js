@@ -1,6 +1,8 @@
 import axios from "axios";
 import { baseUrlFestivalApi } from "../constans/apiBaseUrl";
 
+import formatDate from "../util/formatDate";
+
 export const fetchFestivals = async (
   eventStartDate,
   areaCode,
@@ -10,6 +12,11 @@ export const fetchFestivals = async (
   if (areaCode === "0") {
     areaCode = "";
   }
+  if (eventStartDate) {
+    eventStartDate = formatDate(new Date(eventStartDate));
+  }
+  console.log("fetchFestivals", eventStartDate, areaCode);
+
   try {
     // API URL 설정
     const apiUrl = baseUrlFestivalApi;

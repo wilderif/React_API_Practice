@@ -11,9 +11,8 @@ const FestivalCard = ({ festival }) => {
 
     // 남은 날짜 계산
     const differenceInTime = eventDate - today;
-    const differenceInDays = Math.ceil(
-      differenceInTime / (1000 * 60 * 60 * 24),
-    );
+    const differenceInDays =
+      Math.ceil(differenceInTime / (1000 * 60 * 60 * 24)) - 1;
 
     return differenceInDays >= 0 ? `D-${differenceInDays}` : `개최중`;
   };
