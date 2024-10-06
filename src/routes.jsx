@@ -36,7 +36,7 @@ const routes = createBrowserRouter([
         ],
       },
       {
-        path: "SearchResult",
+        path: "search-result",
         element: <SearchResultPage />,
       },
       {

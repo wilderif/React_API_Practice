@@ -11,22 +11,28 @@ const SearchDatePage = () => {
   const date = useSearchStore((state) => state.date);
   const setDate = useSearchStore((state) => state.setDate);
   const setCurrentPage = useNavigationStore((state) => state.setCurrentPage);
+  const [dateSelected, setDateSelected] = useState(false);
 
   setCurrentPage("searchDate");
 
   const handleDateSelect = (date) => {
     // setSelectedDate(date);
+    setDateSelected(true);
     setDate(date);
   };
 
   return (
-    <div className="mt-6">
-      <Calendar onChange={setDate} value={date} />
+    <div className="mt-6 h-96">
+      <Calendar onChange={handleDateSelect} value={date} />
 
       <div className="mt-4 flex justify-between">
         <div></div>
         <Link to="/search/region">
-          <SearchOptionButton>건너뛰기</SearchOptionButton>
+          {dateSelected ? (
+            <SearchOptionButton>다음</SearchOptionButton>
+          ) : (
+            <SearchOptionButton>건너뛰기</SearchOptionButton>
+          )}
         </Link>
       </div>
     </div>

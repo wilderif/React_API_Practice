@@ -4,3 +4,5 @@ const formatDate = (date) => {
   const day = String(date.getDate()).padStart(2, "0");
   return `${year}${month}${day}`; // YYYYMMDD 형식으로 리턴
 };
+
+export default formatDate;
