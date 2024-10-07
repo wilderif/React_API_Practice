@@ -1,5 +1,5 @@
-import areaCode from "../constans/areaCode";
 import useSearchStore from "../stores/searchStore";
+import areaCode from "../constans/areaCode";
 
 const HeaderNavBar = () => {
   const setRegion = useSearchStore((state) => state.setRegion);
@@ -18,8 +18,8 @@ const HeaderNavBar = () => {
               className={`whitespace-nowrap ${
                 selectedRegion === key
                   ? "text-brand-primary"
-                  : "text-achromatic-black"
-              }`}
+                  : "text-achromatic-black dark:text-white"
+              } `}
               onClick={() => handleClick(key)}
             >
               {value}

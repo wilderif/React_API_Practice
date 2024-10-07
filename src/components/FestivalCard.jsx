@@ -1,20 +1,22 @@
 import { useNavigate } from "react-router-dom";
-import { HeartFillIcon } from "./ui/icon/index";
+
 import FestivalIndicator from "./FestivalIndicator";
-import areaCode from "../constans/areaCode";
+import { HeartFillIcon } from "./ui/icon/index";
+
 import useWishListStore from "../stores/wishListStore";
+import areaCode from "../constans/areaCode";
 
 const FestivalCard = ({ festival }) => {
   const navigate = useNavigate();
   const { wishList, addToWishList, removeFromWishList } = useWishListStore();
 
-  const handleCardClick = () => {
-    navigate(`/detail/${festival.contentid}`);
-  };
-
   const isInWishList = wishList.some(
     (item) => item.contentid === festival.contentid,
   );
+
+  const handleCardClick = () => {
+    navigate(`/detail/${festival.contentid}`);
+  };
 
   const handleWishListClick = (e) => {
     e.stopPropagation();
@@ -41,9 +43,9 @@ const FestivalCard = ({ festival }) => {
   return (
     <div className="relative mt-6 w-full" onClick={handleCardClick}>
       <img
-        src={festival.firstimage}
+        src={festival.firstimage ? festival.firstimage : "/logo.svg"}
         alt={festival.title}
-        className="h-60 w-full rounded-xl object-cover"
+        className="h-60 w-full rounded-xl bg-achromatic-light object-contain"
       />
       <div className="absolute left-2 top-2">
         <FestivalIndicator>
@@ -54,11 +56,15 @@ const FestivalCard = ({ festival }) => {
         <HeartFillIcon active={isInWishList} />
       </button>
       <div>
-        <h2 className="mt-2 text-base font-bold">{festival.title}</h2>
-        <p className="mt-1.5 text-xs">
+        <h2 className="mt-2 text-base font-bold dark:text-white">
+          {festival.title}
+        </h2>
+        <p className="mt-1.5 text-xs dark:text-achromatic-light">
           {festival.eventstartdate} - {festival.eventenddate}
         </p>
-        <p className="text-xs">{areaCode[festival.areacode]}</p>
+        <p className="text-xs dark:text-achromatic-light">
+          {areaCode[festival.areacode]}
+        </p>
       </div>
     </div>
   );

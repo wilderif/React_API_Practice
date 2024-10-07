@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
-import useSearchStore from "../stores/searchStore";
 
 import FestivalCard from "./FestivalCard";
+
+import useSearchStore from "../stores/searchStore";
 import { fetchFestivals } from "../api/festivalApi";
 
 const FestivalCardList = () => {
@@ -16,14 +17,10 @@ const FestivalCardList = () => {
 
   // areaCode가 변경될 때 데이터를 초기화하고 다시 페칭
   useEffect(() => {
-    setPage(1); // 페이지 초기화
-    setFestivals([]); // 기존 축제 목록 초기화
-    loadFestivals(1); // 첫 페이지 데이터 로드
+    setPage(1);
+    setFestivals([]);
+    loadFestivals(1);
   }, [eventStartDate, areaCode]);
-
-  useEffect(() => {
-    console.log(festivals);
-  }, [festivals]);
 
   const loadFestivals = async (pageToLoad = page) => {
     const newFestivals = await fetchFestivals(
@@ -32,11 +29,16 @@ const FestivalCardList = () => {
       10,
       pageToLoad,
     );
-
+    console.log(newFestivals);
+    if (newFestivals === undefined || newFestivals.length === 0) {
+      setHasMore(false);
+      return;
+    }
     setFestivals((prevFestivals) => [...prevFestivals, ...newFestivals]);
     newFestivals.length === 10 ? setHasMore(true) : setHasMore(false);
-    setPage(pageToLoad + 1); // 다음 페이지 번호 설정
+    setPage(pageToLoad + 1);
   };
+
   return (
     <InfiniteScroll
       dataLength={festivals.length}

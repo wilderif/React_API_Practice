@@ -8,7 +8,7 @@ const HeartEmptyIcon = () => {
       className={`h-6 w-6 ${
         currentPage === "wishList"
           ? "text-brand-primary"
-          : "text-achromatic-medium"
+          : "text-achromatic-medium dark:text-white"
       }`}
     />
   );

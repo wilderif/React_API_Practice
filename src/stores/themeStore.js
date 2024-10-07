@@ -1,21 +1,13 @@
-import create from "zustand";
-import { persist } from "zustand/middleware";
+import { create } from "zustand";
 
-const useThemeStore = create(
-  persist(
-    (set) => ({
-      theme: "light", // 기본값은 'light'
+// 테마를 관리하는 store
+const useThemeStore = create((set) => ({
+  theme: "light",
 
-      // 테마 변경 함수
-      toggleTheme: () =>
-        set((state) => ({
-          theme: state.theme === "light" ? "dark" : "light",
-        })),
-    }),
-    {
-      name: "theme-storage", // 로컬 스토리지에 저장될 키 이름
-    },
-  ),
-);
+  toggleTheme: () =>
+    set((state) => ({
+      theme: state.theme === "light" ? "dark" : "light",
+    })),
+}));
 
 export default useThemeStore;

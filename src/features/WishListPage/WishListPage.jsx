@@ -1,11 +1,17 @@
-import useWishListStore from "../../stores/wishListStore";
-import useNavigationStore from "../../stores/navigationStore";
+import { useEffect } from "react";
+
 import FestivalCard from "../../components/FestivalCard";
 
+import useWishListStore from "../../stores/wishListStore";
+import useNavigationStore from "../../stores/navigationStore";
+
 const WhishListPage = () => {
-  const { wishList } = useWishListStore(); // Fetch wishlist data from store
+  const { wishList } = useWishListStore();
   const setCurrentPage = useNavigationStore((state) => state.setCurrentPage);
-  setCurrentPage("wishList");
+
+  useEffect(() => {
+    setCurrentPage("wishList");
+  }, [setCurrentPage]);
 
   return (
     <div>
@@ -16,7 +22,9 @@ const WhishListPage = () => {
           ))}
         </div>
       ) : (
-        <p className="pt-6 text-base">저장된 축제가 없습니다.</p> // No festivals in wishlist
+        <p className="pt-6 text-base dark:text-achromatic-light">
+          저장된 축제가 없습니다.
+        </p>
       )}
     </div>
   );

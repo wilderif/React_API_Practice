@@ -1,6 +1,8 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+
 import SearchOptionButton from "../../../components/SearchOptionButton";
+
 import useNavigationStore from "../../../stores/navigationStore";
 import useSearchStore from "../../../stores/searchStore";
 import areaCode from "../../../constans/areaCode";
@@ -10,14 +12,14 @@ const SearchRegionPage = () => {
   const setRegion = useSearchStore((state) => state.setRegion);
   const setCurrentPage = useNavigationStore((state) => state.setCurrentPage);
 
-  setCurrentPage("searchRegion");
+  useEffect(() => {
+    setCurrentPage("searchRegion");
+  }, [setCurrentPage]);
 
   const handleRegionSelect = (regionKey) => {
     setSelectedRegion(regionKey);
     setRegion(regionKey);
   };
-
-  console.log(selectedRegion);
 
   return (
     <div className="relative mt-6">
@@ -27,10 +29,10 @@ const SearchRegionPage = () => {
             <li key={key}>
               <button
                 onClick={() => handleRegionSelect(key)}
-                className={`block w-full rounded px-3 py-2 text-left ${
+                className={`block w-full rounded border border-achromatic-medium px-3 py-2 text-left text-black ${
                   selectedRegion === key
                     ? "bg-brand-primary text-white"
-                    : "bg-achromatic-light"
+                    : "bg-white"
                 }`}
               >
                 {value}

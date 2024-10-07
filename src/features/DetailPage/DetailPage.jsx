@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { fetchFestivalDetail } from "../../api/festivalApi";
-import useNavigationStore from "../../stores/navigationStore";
-import useWishListStore from "../../stores/wishListStore";
+
 import {
   CalendarIcon,
   HeartFillIcon,
@@ -11,11 +9,16 @@ import {
 } from "../../components/ui/icon";
 import FestivalIndicator from "../../components/FestivalIndicator";
 
+import useNavigationStore from "../../stores/navigationStore";
+import useWishListStore from "../../stores/wishListStore";
+import { fetchFestivalDetail } from "../../api/festivalApi";
+
 const DetailPage = () => {
   const { id } = useParams();
   const [festivalDetail, setFestivalDetail] = useState(null);
   const [isInWishList, setIsInWishList] = useState(false);
   const { wishList, addToWishList, removeFromWishList } = useWishListStore();
+  const setCurrentPage = useNavigationStore((state) => state.setCurrentPage);
 
   // const handleWishListClick = (e) => {
   //   e.stopPropagation();
@@ -27,12 +30,13 @@ const DetailPage = () => {
   //   }
   // };
 
-  const setCurrentPage = useNavigationStore((state) => state.setCurrentPage);
-  setCurrentPage("detail");
+  useEffect(() => {
+    setCurrentPage("detail");
+  }, [setCurrentPage]);
 
   useEffect(() => {
     const loadFestivalDetail = async () => {
-      const data = await fetchFestivalDetail(id); // 축제 ID에 맞는 상세 정보 불러오기
+      const data = await fetchFestivalDetail(id);
       setFestivalDetail(data);
       setIsInWishList(
         wishList.some((item) => item.contentid === data.contentid),
@@ -45,8 +49,6 @@ const DetailPage = () => {
   if (!festivalDetail) {
     return <div>Loading...</div>;
   }
-
-  console.log(festivalDetail);
 
   return (
     <div className="mt-6">
@@ -69,28 +71,30 @@ const DetailPage = () => {
       </div>
 
       <div className="mt-4">
-        <h1 className="text-lg font-bold">{festivalDetail.title}</h1>
-        <div className="mt-2 flex items-center gap-2 text-base text-achromatic-medium">
+        <h2 className="text-lg font-bold dark:text-white">
+          {festivalDetail.title}
+        </h2>
+        <div className="mt-2 flex items-center gap-2 text-base text-achromatic-medium dark:text-white">
           <CalendarIcon />
           <span>
             {festivalDetail.eventstartdate} - {festivalDetail.eventenddate}
           </span>
         </div>
-        <div className="mt-2 flex items-center gap-2 text-base text-achromatic-medium">
+        <div className="mt-2 flex items-center gap-2 text-base text-achromatic-medium dark:text-white">
           <LocationIcon />
           <span>{festivalDetail.addr1}</span>
         </div>
-        <div className="mt-2 flex items-center gap-2 text-base text-achromatic-medium">
+        <div className="mt-2 flex items-center gap-2 text-base text-achromatic-medium dark:text-white">
           <CallIcon />
           <span>{festivalDetail.tel}</span>
         </div>
       </div>
 
-      <div className="mt-4 text-sm">
+      <div className="mt-4 text-sm dark:text-achromatic-light">
         <p>{festivalDetail.overview || "상세 설명이 준비 중입니다."}</p>
       </div>
 
-      {/* 지도 기능 부분 */}
+      {/* 지도 관련 기능 구현 예정 */}
     </div>
   );
 };
