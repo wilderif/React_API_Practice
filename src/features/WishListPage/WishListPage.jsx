@@ -1,11 +1,15 @@
 import useWishListStore from "../../stores/wishListStore";
 import useNavigationStore from "../../stores/navigationStore";
 import FestivalCard from "../../components/FestivalCard";
+import { useEffect } from "react";
 
 const WhishListPage = () => {
   const { wishList } = useWishListStore(); // Fetch wishlist data from store
   const setCurrentPage = useNavigationStore((state) => state.setCurrentPage);
-  setCurrentPage("wishList");
+
+  useEffect(() => {
+    setCurrentPage("wishList");
+  }, [setCurrentPage]);
 
   return (
     <div>

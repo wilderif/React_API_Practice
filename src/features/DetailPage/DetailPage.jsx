@@ -16,6 +16,7 @@ const DetailPage = () => {
   const [festivalDetail, setFestivalDetail] = useState(null);
   const [isInWishList, setIsInWishList] = useState(false);
   const { wishList, addToWishList, removeFromWishList } = useWishListStore();
+  const setCurrentPage = useNavigationStore((state) => state.setCurrentPage);
 
   // const handleWishListClick = (e) => {
   //   e.stopPropagation();
@@ -27,8 +28,9 @@ const DetailPage = () => {
   //   }
   // };
 
-  const setCurrentPage = useNavigationStore((state) => state.setCurrentPage);
-  setCurrentPage("detail");
+  useEffect(() => {
+    setCurrentPage("detail");
+  }, [setCurrentPage]);
 
   useEffect(() => {
     const loadFestivalDetail = async () => {

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import SearchOptionButton from "../../../components/SearchOptionButton";
 import useNavigationStore from "../../../stores/navigationStore";
@@ -10,7 +10,9 @@ const SearchRegionPage = () => {
   const setRegion = useSearchStore((state) => state.setRegion);
   const setCurrentPage = useNavigationStore((state) => state.setCurrentPage);
 
-  setCurrentPage("searchRegion");
+  useEffect(() => {
+    setCurrentPage("searchRegion");
+  }, [setCurrentPage]);
 
   const handleRegionSelect = (regionKey) => {
     setSelectedRegion(regionKey);

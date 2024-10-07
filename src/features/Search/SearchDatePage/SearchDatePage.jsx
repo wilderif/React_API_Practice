@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Calendar from "react-calendar";
 import useNavigationStore from "../../../stores/navigationStore";
@@ -13,7 +13,9 @@ const SearchDatePage = () => {
   const setCurrentPage = useNavigationStore((state) => state.setCurrentPage);
   const [dateSelected, setDateSelected] = useState(false);
 
-  setCurrentPage("searchDate");
+  useEffect(() => {
+    setCurrentPage("searchDate");
+  }, [setCurrentPage]);
 
   const handleDateSelect = (date) => {
     // setSelectedDate(date);
