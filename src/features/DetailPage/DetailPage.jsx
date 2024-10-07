@@ -34,7 +34,7 @@ const DetailPage = () => {
 
   useEffect(() => {
     const loadFestivalDetail = async () => {
-      const data = await fetchFestivalDetail(id); // 축제 ID에 맞는 상세 정보 불러오기
+      const data = await fetchFestivalDetail(id);
       setFestivalDetail(data);
       setIsInWishList(
         wishList.some((item) => item.contentid === data.contentid),

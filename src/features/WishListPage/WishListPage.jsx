@@ -4,7 +4,7 @@ import FestivalCard from "../../components/FestivalCard";
 import { useEffect } from "react";
 
 const WhishListPage = () => {
-  const { wishList } = useWishListStore(); // Fetch wishlist data from store
+  const { wishList } = useWishListStore();
   const setCurrentPage = useNavigationStore((state) => state.setCurrentPage);
 
   useEffect(() => {
@@ -20,7 +20,7 @@ const WhishListPage = () => {
           ))}
         </div>
       ) : (
-        <p className="pt-6 text-base">저장된 축제가 없습니다.</p> // No festivals in wishlist
+        <p className="pt-6 text-base">저장된 축제가 없습니다.</p>
       )}
     </div>
   );
