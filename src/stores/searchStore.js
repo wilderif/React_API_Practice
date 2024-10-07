@@ -1,6 +1,6 @@
 import { create } from "zustand";
 
-// Zustand 스토어 정의
+// 검색 기능을 위한 store
 const useSearchStore = create((set) => ({
   date: new Date(), // 현재 날짜
   region: "0",

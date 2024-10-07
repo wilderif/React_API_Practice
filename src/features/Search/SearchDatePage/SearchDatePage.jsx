@@ -10,12 +10,15 @@ const SearchDatePage = () => {
   // const [selectedDate, setSelectedDate] = useState(getCurrentDate());
   const date = useSearchStore((state) => state.date);
   const setDate = useSearchStore((state) => state.setDate);
+  const setRegion = useSearchStore((state) => state.setRegion);
   const setCurrentPage = useNavigationStore((state) => state.setCurrentPage);
   const [dateSelected, setDateSelected] = useState(false);
 
   useEffect(() => {
     setCurrentPage("searchDate");
-  }, [setCurrentPage]);
+    setDate(new Date()); // 날짜를 현재 날짜로 초기화
+    setRegion("0"); // 지역을 기본값으로 초기화
+  }, [setCurrentPage, setDate, setRegion]);
 
   const handleDateSelect = (date) => {
     // setSelectedDate(date);
