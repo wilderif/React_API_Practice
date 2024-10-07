@@ -11,11 +11,11 @@ import "react-calendar/dist/Calendar.css";
 
 const SearchDatePage = () => {
   // const [selectedDate, setSelectedDate] = useState(getCurrentDate());
+  const [dateSelected, setDateSelected] = useState(false);
   const date = useSearchStore((state) => state.date);
   const setDate = useSearchStore((state) => state.setDate);
   const setRegion = useSearchStore((state) => state.setRegion);
   const setCurrentPage = useNavigationStore((state) => state.setCurrentPage);
-  const [dateSelected, setDateSelected] = useState(false);
 
   useEffect(() => {
     setCurrentPage("searchDate");

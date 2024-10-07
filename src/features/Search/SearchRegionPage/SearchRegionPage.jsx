@@ -21,8 +21,6 @@ const SearchRegionPage = () => {
     setRegion(regionKey);
   };
 
-  console.log(selectedRegion);
-
   return (
     <div className="relative mt-6">
       <div className="h-96 overflow-auto border-2 p-2">

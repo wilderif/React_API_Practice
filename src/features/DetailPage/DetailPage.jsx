@@ -50,8 +50,6 @@ const DetailPage = () => {
     return <div>Loading...</div>;
   }
 
-  console.log(festivalDetail);
-
   return (
     <div className="mt-6">
       <div className="relative">
@@ -96,7 +94,7 @@ const DetailPage = () => {
         <p>{festivalDetail.overview || "상세 설명이 준비 중입니다."}</p>
       </div>
 
-      {/* 지도 기능 부분 */}
+      {/* 지도 관련 기능 구현 예정 */}
     </div>
   );
 };

@@ -14,7 +14,6 @@ export const fetchFestivals = async (
   if (eventStartDate) {
     eventStartDate = formatDate(new Date(eventStartDate));
   }
-  console.log("fetchFestivals", eventStartDate, areaCode);
 
   try {
     const apiUrl = baseUrlFestivalApi;
@@ -36,11 +35,8 @@ export const fetchFestivals = async (
 };
 
 export const fetchFestivalDetail = async (id) => {
-  console.log("fetchFestivalDetail", id);
   try {
     const apiUrl = baseUrlDetailApi;
-
-    console.log("apiUrl", apiUrl);
 
     const response = await axios.get(apiUrl, {
       params: {
@@ -53,8 +49,6 @@ export const fetchFestivalDetail = async (id) => {
         mapinfoYN: "Y",
       },
     });
-
-    console.log("response", response);
 
     return response.data.response.body.items.item[0];
   } catch (error) {

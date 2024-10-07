@@ -6,6 +6,7 @@ import useNavigationStore from "../../stores/navigationStore";
 
 const HomePage = () => {
   const setCurrentPage = useNavigationStore((state) => state.setCurrentPage);
+
   useEffect(() => {
     setCurrentPage("home");
   }, [setCurrentPage]);

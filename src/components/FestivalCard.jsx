@@ -10,13 +10,13 @@ const FestivalCard = ({ festival }) => {
   const navigate = useNavigate();
   const { wishList, addToWishList, removeFromWishList } = useWishListStore();
 
-  const handleCardClick = () => {
-    navigate(`/detail/${festival.contentid}`);
-  };
-
   const isInWishList = wishList.some(
     (item) => item.contentid === festival.contentid,
   );
+
+  const handleCardClick = () => {
+    navigate(`/detail/${festival.contentid}`);
+  };
 
   const handleWishListClick = (e) => {
     e.stopPropagation();

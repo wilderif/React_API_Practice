@@ -22,10 +22,6 @@ const FestivalCardList = () => {
     loadFestivals(1);
   }, [eventStartDate, areaCode]);
 
-  useEffect(() => {
-    console.log(festivals);
-  }, [festivals]);
-
   const loadFestivals = async (pageToLoad = page) => {
     const newFestivals = await fetchFestivals(
       eventStartDate,
