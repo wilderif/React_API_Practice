@@ -43,9 +43,9 @@ const FestivalCard = ({ festival }) => {
   return (
     <div className="relative mt-6 w-full" onClick={handleCardClick}>
       <img
-        src={festival.firstimage}
+        src={festival.firstimage ? festival.firstimage : "/public/logo.svg"}
         alt={festival.title}
-        className="h-60 w-full rounded-xl object-cover"
+        className="h-60 w-full rounded-xl bg-achromatic-light object-contain"
       />
       <div className="absolute left-2 top-2">
         <FestivalIndicator>

@@ -29,11 +29,16 @@ const FestivalCardList = () => {
       10,
       pageToLoad,
     );
-
+    console.log(newFestivals);
+    if (newFestivals === undefined || newFestivals.length === 0) {
+      setHasMore(false);
+      return;
+    }
     setFestivals((prevFestivals) => [...prevFestivals, ...newFestivals]);
     newFestivals.length === 10 ? setHasMore(true) : setHasMore(false);
     setPage(pageToLoad + 1);
   };
+
   return (
     <InfiniteScroll
       dataLength={festivals.length}
