@@ -1,7 +1,9 @@
+import { useEffect } from "react";
+
+import FestivalCard from "../../components/FestivalCard";
+
 import useWishListStore from "../../stores/wishListStore";
 import useNavigationStore from "../../stores/navigationStore";
-import FestivalCard from "../../components/FestivalCard";
-import { useEffect } from "react";
 
 const WhishListPage = () => {
   const { wishList } = useWishListStore();

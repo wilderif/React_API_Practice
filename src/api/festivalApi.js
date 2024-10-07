@@ -1,6 +1,5 @@
 import axios from "axios";
 import { baseUrlFestivalApi, baseUrlDetailApi } from "../constans/apiBaseUrl";
-
 import formatDate from "../util/formatDate";
 
 export const fetchFestivals = async (

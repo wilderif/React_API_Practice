@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+
 import useNavigationStore from "../stores/navigationStore";
 
 import { HomeIcon, SearchIcon, HeartEmptyIcon } from "./ui/icon";

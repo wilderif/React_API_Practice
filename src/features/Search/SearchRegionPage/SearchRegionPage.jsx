@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+
 import SearchOptionButton from "../../../components/SearchOptionButton";
+
 import useNavigationStore from "../../../stores/navigationStore";
 import useSearchStore from "../../../stores/searchStore";
 import areaCode from "../../../constans/areaCode";

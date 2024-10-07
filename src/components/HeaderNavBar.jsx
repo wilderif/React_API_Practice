@@ -1,5 +1,5 @@
-import areaCode from "../constans/areaCode";
 import useSearchStore from "../stores/searchStore";
+import areaCode from "../constans/areaCode";
 
 const HeaderNavBar = () => {
   const setRegion = useSearchStore((state) => state.setRegion);

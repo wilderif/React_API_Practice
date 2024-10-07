@@ -1,5 +1,6 @@
 import { create } from "zustand";
 
+// 테마를 관리하는 store
 const useThemeStore = create((set) => ({
   theme: "light",
 

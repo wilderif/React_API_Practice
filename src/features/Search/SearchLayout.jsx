@@ -1,4 +1,5 @@
 import { Link, Outlet } from "react-router-dom";
+
 import { CloseIcon } from "../../components/ui/icon/index";
 
 import ProgressIndicator from "./components/ProgressIndicator";

@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
-import useSearchStore from "../stores/searchStore";
 
 import FestivalCard from "./FestivalCard";
+
+import useSearchStore from "../stores/searchStore";
 import { fetchFestivals } from "../api/festivalApi";
 
 const FestivalCardList = () => {

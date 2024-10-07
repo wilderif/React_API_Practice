@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { fetchFestivalDetail } from "../../api/festivalApi";
-import useNavigationStore from "../../stores/navigationStore";
-import useWishListStore from "../../stores/wishListStore";
+
 import {
   CalendarIcon,
   HeartFillIcon,
@@ -10,6 +8,10 @@ import {
   LocationIcon,
 } from "../../components/ui/icon";
 import FestivalIndicator from "../../components/FestivalIndicator";
+
+import useNavigationStore from "../../stores/navigationStore";
+import useWishListStore from "../../stores/wishListStore";
+import { fetchFestivalDetail } from "../../api/festivalApi";
 
 const DetailPage = () => {
   const { id } = useParams();

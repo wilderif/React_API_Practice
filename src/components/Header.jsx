@@ -1,7 +1,8 @@
-import useNavigationStore from "../stores/navigationStore";
-import useThemeStore from "../stores/themeStore";
 import HeaderNavBar from "./HeaderNavBar";
 import { LightModeIcon, DarkModeIcon } from "./ui/icon";
+
+import useNavigationStore from "../stores/navigationStore";
+import useThemeStore from "../stores/themeStore";
 
 const Header = () => {
   const currentPage = useNavigationStore((state) => state.currentPage);

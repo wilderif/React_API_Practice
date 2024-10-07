@@ -1,5 +1,7 @@
 import { useEffect } from "react";
+
 import FestivalCardList from "../../components/FestivalCardList";
+
 import useNavigationStore from "../../stores/navigationStore";
 
 const HomePage = () => {

@@ -1,6 +1,7 @@
+import FestivalCardList from "../../components/FestivalCardList";
+
 import useNavigationStore from "../../stores/navigationStore";
 import useSearchStore from "../../stores/searchStore";
-import FestivalCardList from "../../components/FestivalCardList";
 import areaCode from "../../constans/areaCode";
 
 const formatDate = (date) => {

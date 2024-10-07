@@ -1,8 +1,10 @@
 import { useNavigate } from "react-router-dom";
-import { HeartFillIcon } from "./ui/icon/index";
+
 import FestivalIndicator from "./FestivalIndicator";
-import areaCode from "../constans/areaCode";
+import { HeartFillIcon } from "./ui/icon/index";
+
 import useWishListStore from "../stores/wishListStore";
+import areaCode from "../constans/areaCode";
 
 const FestivalCard = ({ festival }) => {
   const navigate = useNavigate();
