@@ -71,24 +71,26 @@ const DetailPage = () => {
       </div>
 
       <div className="mt-4">
-        <h1 className="text-lg font-bold">{festivalDetail.title}</h1>
-        <div className="mt-2 flex items-center gap-2 text-base text-achromatic-medium">
+        <h2 className="text-lg font-bold dark:text-white">
+          {festivalDetail.title}
+        </h2>
+        <div className="mt-2 flex items-center gap-2 text-base text-achromatic-medium dark:text-white">
           <CalendarIcon />
           <span>
             {festivalDetail.eventstartdate} - {festivalDetail.eventenddate}
           </span>
         </div>
-        <div className="mt-2 flex items-center gap-2 text-base text-achromatic-medium">
+        <div className="mt-2 flex items-center gap-2 text-base text-achromatic-medium dark:text-white">
           <LocationIcon />
           <span>{festivalDetail.addr1}</span>
         </div>
-        <div className="mt-2 flex items-center gap-2 text-base text-achromatic-medium">
+        <div className="mt-2 flex items-center gap-2 text-base text-achromatic-medium dark:text-white">
           <CallIcon />
           <span>{festivalDetail.tel}</span>
         </div>
       </div>
 
-      <div className="mt-4 text-sm">
+      <div className="mt-4 text-sm dark:text-achromatic-light">
         <p>{festivalDetail.overview || "상세 설명이 준비 중입니다."}</p>
       </div>
 

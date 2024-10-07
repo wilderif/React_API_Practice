@@ -18,8 +18,8 @@ const HeaderNavBar = () => {
               className={`whitespace-nowrap ${
                 selectedRegion === key
                   ? "text-brand-primary"
-                  : "text-achromatic-black"
-              }`}
+                  : "text-achromatic-black dark:text-white"
+              } `}
               onClick={() => handleClick(key)}
             >
               {value}

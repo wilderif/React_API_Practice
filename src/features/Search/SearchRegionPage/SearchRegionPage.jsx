@@ -29,10 +29,10 @@ const SearchRegionPage = () => {
             <li key={key}>
               <button
                 onClick={() => handleRegionSelect(key)}
-                className={`block w-full rounded px-3 py-2 text-left ${
+                className={`block w-full rounded border border-achromatic-medium px-3 py-2 text-left text-black ${
                   selectedRegion === key
                     ? "bg-brand-primary text-white"
-                    : "bg-achromatic-light"
+                    : "bg-white"
                 }`}
               >
                 {value}

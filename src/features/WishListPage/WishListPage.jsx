@@ -20,7 +20,9 @@ const WhishListPage = () => {
           ))}
         </div>
       ) : (
-        <p className="pt-6 text-base">저장된 축제가 없습니다.</p>
+        <p className="pt-6 text-base dark:text-achromatic-light">
+          저장된 축제가 없습니다.
+        </p>
       )}
     </div>
   );

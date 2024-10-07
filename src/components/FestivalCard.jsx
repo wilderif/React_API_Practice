@@ -54,11 +54,15 @@ const FestivalCard = ({ festival }) => {
         <HeartFillIcon active={isInWishList} />
       </button>
       <div>
-        <h2 className="mt-2 text-base font-bold">{festival.title}</h2>
-        <p className="mt-1.5 text-xs">
+        <h2 className="mt-2 text-base font-bold dark:text-white">
+          {festival.title}
+        </h2>
+        <p className="mt-1.5 text-xs dark:text-achromatic-light">
           {festival.eventstartdate} - {festival.eventenddate}
         </p>
-        <p className="text-xs">{areaCode[festival.areacode]}</p>
+        <p className="text-xs dark:text-achromatic-light">
+          {areaCode[festival.areacode]}
+        </p>
       </div>
     </div>
   );

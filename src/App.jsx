@@ -15,7 +15,11 @@ const App = () => {
     }
   }, [theme]);
 
-  return <RouterProvider router={routes} />;
+  return (
+    <div className="min-h-screen dark:bg-dark-background dark:text-white">
+      <RouterProvider router={routes} />
+    </div>
+  );
 };
 
 export default App;

@@ -7,7 +7,7 @@ const BottomNavBar = () => {
   const currentPage = useNavigationStore((state) => state.currentPage);
 
   return (
-    <nav className="fixed bottom-0 flex h-14 w-full items-center bg-white px-20 shadow-top_only">
+    <nav className="fixed bottom-0 flex h-14 w-full items-center bg-white px-20 shadow-top_only dark:bg-dark-background dark:shadow-achromatic-medium">
       <ul className="flex w-full justify-between">
         <li>
           <Link to="/">
@@ -17,7 +17,7 @@ const BottomNavBar = () => {
                 className={`-mt-0.5 text-xxs ${
                   currentPage === "home"
                     ? "text-brand-primary"
-                    : "text-achromatic-medium"
+                    : "text-achromatic-medium dark:text-white"
                 }`}
               >
                 홈
@@ -33,7 +33,7 @@ const BottomNavBar = () => {
                 className={`-mt-0.5 text-xxs ${
                   currentPage === "searchDate" || currentPage === "searchRegion"
                     ? "text-brand-primary"
-                    : "text-achromatic-medium"
+                    : "text-achromatic-medium dark:text-white"
                 }`}
               >
                 축제 검색
@@ -49,7 +49,7 @@ const BottomNavBar = () => {
                 className={`-mt-0.5 text-xxs ${
                   currentPage === "wishList"
                     ? "text-brand-primary"
-                    : "text-achromatic-medium"
+                    : "text-achromatic-medium dark:text-white"
                 }`}
               >
                 찜

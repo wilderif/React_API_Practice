@@ -7,7 +7,9 @@ const HomeIcon = () => {
   return (
     <MdOutlineHome
       className={`h-6 w-6 ${
-        currentPage === "home" ? "text-brand-primary" : "text-achromatic-medium"
+        currentPage === "home"
+          ? "text-brand-primary"
+          : "text-achromatic-medium dark:text-white"
       }`}
     />
   );

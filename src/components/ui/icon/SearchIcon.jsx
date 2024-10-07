@@ -9,7 +9,7 @@ const SearchIcon = () => {
       className={`h-6 w-6 ${
         currentPage === "searchDate" || currentPage === "searchRegion"
           ? "text-brand-primary"
-          : "text-achromatic-medium"
+          : "text-achromatic-medium dark:text-white"
       }`}
     />
   );
